@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header"></div>
+  <div class="card-body">
+    <table class="table-hover table-sm">
+<thead><th>nom</th><th>capacite</th><th>nbrPoussinMale</th><th>nbrPoussinFemale</th><th>totalPoussin</th><th>reference</th></thead>
+      <tbody>
+      <tr *ngFor="let f of firmes ">
+  <td>{{f.nom}}</td>
+  <td>{{f.capacite}}</td>
+  <td>{{f.nbrPoussinMale}}</td>
+  <td>{{f.nbrPoussinFemale}}</td>
+  <td>{{f.totalPoussin}}</td>
+  <td>{{f.placeRestant}}</td>
+  <td>{{f.reference}}</td>
+</tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+<div class="card">
+  <div class="card-header">CREATION FIRME</div>
+  <div class="card-body">
+
+    <div class="card">
+      <div class="card-header">INFO FIRME</div>
+      <div class="card-body">
+        <div class="form-group">
+          <label>nom</label>
+          <input type="text" class="form-control" [(ngModel)]="firme.nom"/>
+        </div>
+        <div class="form-group">
+          <label>nbrPoussinMale</label>
+          <input type="number" class="form-control" [(ngModel)]="firme.nbrPoussinMale"/>
+        </div>
+        <div class="form-group">
+          <label>nbrPoussinFemale</label>
+          <input type="number" class="form-control" [(ngModel)]="firme.nbrPoussinFemale"/>
+        </div>
+        <div class="form-group">
+          <label>totalPoussin</label>
+          <input type="number" class="form-control" [(ngModel)]="firme.totalPoussin"/>
+        </div>
+        <div class="form-group">
+          <label>placeRestant</label>
+          <input type="number" class="form-control" [(ngModel)]="firme.placeRestant"/>
+        </div>
+        <div class="form-group">
+          <label>capacite</label>
+          <input type="number" class="form-control" [(ngModel)]="firme.capacite"/>
+        </div>
+        <div class="form-group">
+          <label>reference</label>
+          <input type="text" class="form-control" [(ngModel)]="firme.reference"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">AFFECTATIONS DE LA FIRME</div>
+      <div class="card-body">
+
+
+        <div class="form-group">
+          <label>dateAffectation</label>
+          <input type="date" class="form-control" [(ngModel)]="affectation.dateAffectation"/>
+        </div>
+
+        <div class="form-group">
+          <label>nbrMale</label>
+          <input type="int" class="form-control" [(ngModel)]="affectation.nbrMale"/>
+        </div>
+
+        <div class="form-group">
+          <label>nbrFemale</label>
+          <input type="int" class="form-control" [(ngModel)]="affectation.nbrFemale"/>
+        </div>
+
+
+        <div class="form-group">
+          <label>refe</label>
+          <input type="text" class="form-control" [(ngModel)]="affectation.refe"/>
+        </div>
+
+        <div class="form-group">
+          <label>referenceImport</label>
+          <input type="text" class="form-control" [(ngModel)]="affectation.referenceImport"/>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-outline-primary" (click)="addAffectation()">Ajouter affectation</button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">LISTE DES AFFECTATIONS DE LA FIRME</div>
+      <div class="card-body">
+        <table class="table table-sm table-hover" >
+          <thead>
+          <th>dateAffectation</th>
+          <th>nbrMale</th>
+          <th>nbrFemale</th>
+          <th>refe</th>
+          <th>referenceImport</th>
+
+          </thead>
+          <tbody>
+          <tr *ngFor="let c of affectations">
+
+          <td>{{c.dateAffectation}}</td>
+          <td>{{c.nbrMale}}</td>
+          <td>{{c.nbrFemale}}</td>
+          <td>{{c.refe}}</td>
+          <td>{{c.referenceImport}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer">
+        <button (click)="save()" class="btn btn-outline-dark">Enregistrer</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
