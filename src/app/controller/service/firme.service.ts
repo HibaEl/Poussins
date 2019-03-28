@@ -15,6 +15,8 @@ export class FirmeService {
   private _firmeCreate: Firme = new Firme('', '', 0, 0, 0, 0, 0);
   private _affectationCreate: Affectation = new Affectation();
   private _firmes:Array<Firme>;
+  private _firmeSelected:Firme;
+
   constructor(private http:HttpClient) { }
 
   public addAffectation(){
@@ -39,6 +41,7 @@ export class FirmeService {
     return affectationClone;
     }
 
+
     public save(){
     this.http.post<Firme>(this.url,this.firmeCreate).subscribe(
       data=>{
@@ -50,17 +53,45 @@ export class FirmeService {
       );
     }
 
-  get firmes(): Array<Firme> {
-    if(this._firmes == null){
-      // @ts-ignore
+    public findAll(){
       this.http.get<Array<Firme>>(this._url).subscribe(
-        data => {
+        data=>{
           this._firmes = data;
-      },error =>{
-       console.log("error while loading firmes !!")
+        },
+        error=> {
+          console.log("error while loading firmes !!")
         }
       );
     }
+
+
+  public findAffectationByReferenceFirme(firme){
+    this._firmeSelected=firme;
+    if(this.firmeSelected!=null) {
+      this.http.get<Array<Affectation>>(this._url +"/reference/"+this._firmeSelected.reference+"/affectations/").subscribe(
+        data => {
+          this._firmeSelected.affectationVo=data;
+        },
+        error => {
+          console.log("error while loading affectations !!")
+        }
+      );
+    }
+  }
+
+
+  get firmes(): Array<Firme> {
+    if (this._firmes == null) {
+      this._firmes = new Array<Firme>();
+    }
+    this.http.get<Array<Firme>>(this._url).subscribe(
+      data => {
+        this._firmes = data;
+      }, error => {
+        console.log("error while loading firmes !!")
+      }
+    );
+
     return this._firmes;
   }
 
@@ -93,4 +124,11 @@ export class FirmeService {
   }
 
 
+  get firmeSelected(): Firme {
+    return this._firmeSelected;
+  }
+
+  set firmeSelected(value: Firme) {
+    this._firmeSelected = value;
+  }
 }

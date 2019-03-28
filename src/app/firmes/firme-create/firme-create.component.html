@@ -48,17 +48,17 @@
 
         <div class="form-group">
           <label>nbrMale</label>
-          <input type="int" class="form-control" [(ngModel)]="affectation.nbrMale"/>
+          <input type="number" class="form-control" [(ngModel)]="affectation.nbrMale"/>
         </div>
 
         <div class="form-group">
           <label>nbrFemale</label>
-          <input type="int" class="form-control" [(ngModel)]="affectation.nbrFemale"/>
+          <input type="number" class="form-control" [(ngModel)]="affectation.nbrFemale"/>
         </div>
 
 
         <div class="form-group">
-          <label>refe</label>
+          <label>reference</label>
           <input type="text" class="form-control" [(ngModel)]="affectation.refe"/>
         </div>
 
@@ -68,7 +68,7 @@
         </div>
 
         <div class="form-group">
-          <button class="btn btn-outline-primary" (click)="addAffectation()">Ajouter affectation</button>
+          <button class="btn btn-outline-dark" (click)="addAffectation()">Ajouter affectation</button>
         </div>
 
       </div>
@@ -77,12 +77,12 @@
     <div class="card">
       <div class="card-header">LISTE DES AFFECTATIONS DE LA FIRME</div>
       <div class="card-body">
-        <table class="table table-sm table-hover" >
-          <thead>
+        <table class="table table-sm table-hover table-bordered" >
+          <thead class="thead-dark">
           <th>dateAffectation</th>
           <th>nbrMale</th>
           <th>nbrFemale</th>
-          <th>refe</th>
+          <th>reference</th>
           <th>referenceImport</th>
 
           </thead>

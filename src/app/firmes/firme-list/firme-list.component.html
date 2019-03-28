@@ -1,19 +1,42 @@
-<div class="card">
-  <div class="card-header"></div>
+<div class="row">
+<div class="card ">
+  <div class="card-header">LISTE DES FIRMES</div>
   <div class="card-body">
-    <table class="table-hover table-sm">
-<thead><th>nom</th><th>capacite</th><th>nbrPoussinMale</th><th>nbrPoussinFemale</th><th>totalPoussin</th><th>reference</th></thead>
+    <table class=" table table-hover table-sm table-bordered ">
+      <thead class="thead-dark"><th>reference</th><th>capacite</th><th>nbrPoussinMale</th><th>nbrPoussinFemale</th><th>totalPoussin</th><th>place restant</th><th>nom</th><th>Action</th></thead>
       <tbody>
       <tr *ngFor="let f of firmes ">
-  <td>{{f.nom}}</td>
-  <td>{{f.capacite}}</td>
-  <td>{{f.nbrPoussinMale}}</td>
-  <td>{{f.nbrPoussinFemale}}</td>
-  <td>{{f.totalPoussin}}</td>
-  <td>{{f.placeRestant}}</td>
-  <td>{{f.reference}}</td>
+        <td>{{f.reference}}</td>
+        <td>{{f.capacite}}</td>
+       <td>{{f.nbrPoussinMale}}</td>
+      <td>{{f.nbrPoussinFemale}}</td>
+       <td>{{f.totalPoussin}}</td>
+        <td>{{f.placeRestant}}</td>
+      <td>{{f.nom}}</td>
+        <td><button (click)="findAffectationByReferenceFirme(f)" class="btn btn-sm btn-outline-info fa fa-plus"></button></td>
 </tr>
       </tbody>
     </table>
   </div>
+</div>
+
+<div class="card" *ngIf="firmeSelected!=null ">
+  <div class="card-header">AFFECTATIONS DE LA FIRME {{firmeSelected.reference}}</div>
+  <div class="card-body">
+    <table class=" table table-sm table-hover table-bordered ">
+      <thead class="thead-dark"><th>nombre males</th><th>nombre femelles</th><th>Date d'affectation</th><th>reference</th><th>reference import</th></thead>
+      <tbody>
+      <tr *ngFor="let fAffect of firmeSelected.affectationVo ">
+        <td>{{fAffect.nbrMale}}</td>
+        <td>{{fAffect.nbrFemale}}</td>
+        <td>{{fAffect.dateAffectation}}</td>
+        <td>{{fAffect.refe}}</td>
+        <td>{{fAffect.referenceImport}}</td>
+
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 </div>

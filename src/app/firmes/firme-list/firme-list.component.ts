@@ -1,6 +1,7 @@
 /* tslint:disable:one-line no-trailing-whitespace */
 import { Component, OnInit } from '@angular/core';
 import {FirmeService} from '../../controller/service/firme.service';
+import {Firme} from '../../controller/model/firme.model';
 
 @Component({
   selector: 'app-firme-list',
@@ -9,15 +10,20 @@ import {FirmeService} from '../../controller/service/firme.service';
 })
 export class FirmeListComponent implements OnInit {
 
-  constructor(firmeService: FirmeService) { }
+  constructor(private firmeService: FirmeService) { }
 
   ngOnInit() {
-
-    // @ts-ignore
-    this.firmeService.findAll();
+   this.firmeService.findAll();
   }
-public get firmes(){
-// @ts-ignore
-  return this.firmeService.firmes;
-}
+
+  public findAffectationByReferenceFirme(firme: Firme){
+    this.firmeService.findAffectationByReferenceFirme(firme);
+  }
+  public get firmes(){
+    return this.firmeService.firmes;
+  }
+
+  public get firmeSelected(){
+    return this.firmeService.firmeSelected;
+  }
 }

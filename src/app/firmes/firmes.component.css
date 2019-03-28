@@ -1,0 +1,22 @@
+a{
+  font-size: 20px;
+  color:dimgray;
+  font-weight: bold;
+
+}
+
+.jumbotron{
+  text-align: center;
+  background: transparent;
+  height: 320px;
+  text-shadow: black 0.4em 0.4em 0.4em;
+  margin-bottom: 0px;
+
+}
+
+.display-1{
+  font-size: 100px;
+  font-weight: bold;
+
+}
+
